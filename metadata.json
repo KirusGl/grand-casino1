@@ -1,0 +1,7 @@
+{
+  "name": "Copy of The Residency | VIP Salon",
+  "description": "An elite, private member's club casino experience for Telegram.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
