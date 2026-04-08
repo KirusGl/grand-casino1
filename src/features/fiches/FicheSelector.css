@@ -1,0 +1,271 @@
+/* Fiche Selector Styles */
+
+.fiche-selector {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Search bar */
+.fiche-selector__search {
+  margin-bottom: 20px;
+}
+
+.fiche-selector__search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.fiche-selector__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fiche-selector__search-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Filter buttons */
+.fiche-selector__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.fiche-selector__filter-btn {
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fiche-selector__filter-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.fiche-selector__filter-btn.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Rarity-specific button colors */
+.fiche-selector__filter-btn--common.active {
+  background: linear-gradient(135deg, #999 0%, #ccc 100%);
+  border-color: #999;
+}
+
+.fiche-selector__filter-btn--uncommon.active {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  border-color: #4ecdc4;
+}
+
+.fiche-selector__filter-btn--rare.active {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  border-color: #ffd700;
+  color: #000;
+}
+
+.fiche-selector__filter-btn--epic.active {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff4500 100%);
+  border-color: #ff6b6b;
+}
+
+.fiche-selector__filter-btn--legendary.active {
+  background: linear-gradient(135deg, #ff00ff 0%, #8b008b 100%);
+  border-color: #ff00ff;
+}
+
+.fiche-selector__filter-btn--mythic.active {
+  background: linear-gradient(135deg, #00ffff 0%, #008b8b 100%);
+  border-color: #00ffff;
+  color: #000;
+}
+
+.fiche-selector__filter-btn--divine.active {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+  border-color: #ffffff;
+  color: #000;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Stats */
+.fiche-selector__stats {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+/* Grid layout */
+.fiche-selector__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Grid item */
+.fiche-selector__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.fiche-selector__item:hover {
+  transform: translateY(-5px);
+}
+
+.fiche-selector__item.selected .fiche {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 215, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.fiche-selector__item.selected::after {
+  content: '✓';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, #00ff00 0%, #008000 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  animation: checkmarkPop 0.3s ease;
+}
+
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Item info */
+.fiche-selector__item-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.fiche-name {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fiche-rarity {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 9px;
+  text-transform: capitalize;
+}
+
+/* Empty state */
+.fiche-selector__empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fiche-selector__grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+  }
+
+  .fiche-selector__filters {
+    gap: 6px;
+  }
+
+  .fiche-selector__filter-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Scrollbar styling for fiche selector */
+.fiche-selector__grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fiche-selector__grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.fiche-selector__grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.fiche-selector__grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading state */
+.fiche-selector--loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.fiche-selector__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.fiche-selector__loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
