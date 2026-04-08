@@ -18,3 +18,6 @@ export const hapticSelection = () => {
     tg.HapticFeedback.selectionChanged();
   }
 };
+
+// Alias for backward compatibility
+export const triggerHaptic = hapticImpact;

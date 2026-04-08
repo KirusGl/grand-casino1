@@ -112,6 +112,13 @@ function App() {
 
   return (
     <div className="min-h-screen font-sans bg-royal-bg text-royal-ivory overflow-hidden relative">
+      {/* Ambient Animated Background */}
+      <div className="ambient-background">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+      </div>
+
       <audio ref={audioRef} loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" />
 
       {gameState === GameState.START && (
